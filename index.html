@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Stories for Families</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 87, 146, 0.1);
+            overflow: hidden;
+            border: 1px solid #e1e8f0;
+        }
+
+        header {
+            background: linear-gradient(to right, #0d5ba3, #1a7ac4);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 5px solid #ffcc00;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tabs-container {
+            display: flex;
+            background-color: #f0f7ff;
+            border-bottom: 1px solid #d1e3f8;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 18px 30px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-grow: 1;
+            text-align: center;
+            border-right: 1px solid #e1e8f0;
+        }
+
+        .tab-button:hover {
+            background-color: #e1efff;
+            color: #0d5ba3;
+        }
+
+        .tab-button.active {
+            background-color: #fff;
+            color: #0d5ba3;
+            border-bottom: 3px solid #0d5ba3;
+            position: relative;
+            top: 1px;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px;
+            min-height: 500px;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .language-section {
+            margin-bottom: 35px;
+            padding: 25px;
+            background-color: #f9fbff;
+            border-radius: 15px;
+            border-left: 5px solid #1a7ac4;
+        }
+
+        .language-title {
+            color: #0d5ba3;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #d1e3f8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-text {
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .transliteration {
+            font-style: italic;
+            color: #666;
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 3px solid #ffcc00;
+        }
+
+        .tab-link {
+            display: inline-block;
+            background-color: #0d5ba3;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .tab-link:hover {
+            background-color: #1a7ac4;
+            transform: translateY(-2px);
+        }
+
+        .audio-section {
+            background-color: #f0faff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 25px;
+            border: 2px solid #d1e9ff;
+        }
+
+        .audio-title {
+            color: #0d5ba3;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .audio-title i {
+            margin-right: 10px;
+            color: #ff9900;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .audio-item {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid #e1f0ff;
+        }
+
+        .audio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 87, 146, 0.1);
+        }
+
+        .day-title {
+            color: #1a7ac4;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .day-title i {
+            margin-right: 10px;
+            color: #ff9900;
+        }
+
+        .drive-link {
+            display: inline-block;
+            background-color: #0d5ba3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            line-height: 24px;
+        }
+
+        .drive-link:hover {
+            background-color: #1a7ac4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 91, 163, 0.2);
+        }
+
+        .drive-link i {
+            margin-right: 8px;
+        }
+
+        .coming-soon-item {
+            background-color: #f9f9f9;
+            border-left: 4px solid #cccccc;
+        }
+
+        .coming-soon-text-inline {
+            color: #888;
+            font-style: italic;
+            padding: 8px 0;
+            border-top: 1px dashed #ddd;
+            margin-top: 15px;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 80px 20px;
+            color: #666;
+        }
+
+        .coming-soon-icon {
+            font-size: 4rem;
+            color: #d1e3f8;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon-text {
+            font-size: 1.8rem;
+            color: #888;
+            font-weight: 300;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.95rem;
+            border-top: 1px solid #e1e8f0;
+            background-color: #f9fbff;
+        }
+
+        /* Tablet and smaller screens */
+        @media (max-width: 768px) {
+            .tab-button {
+                padding: 15px 8px;
+                font-size: 0.95rem;
+                flex: 1 0 20%;
+            }
+            
+            .tab-content {
+                padding: 25px 15px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+                padding: 0 10px;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .language-title {
+                font-size: 1.4rem;
+            }
+            
+            .container {
+                margin: 15px auto;
+                border-radius: 15px;
+            }
+            
+            .stories-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+            }
+        }
+
+        /* Mobile phones */
+        @media (max-width: 480px) {
+            header {
+                padding: 25px 15px;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            
+            header p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            
+            .tab-button {
+                padding: 12px 5px;
+                font-size: 0.9rem;
+                min-width: 20%;
+            }
+            
+            .tab-link {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+                margin-left: 5px;
+            }
+            
+            .drive-link {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+                display: block;
+                text-align: center;
+                margin: 15px 0;
+            }
+            
+            .audio-item {
+                padding: 15px;
+            }
+            
+            .day-title {
+                font-size: 1.2rem;
+            }
+            
+            .coming-soon {
+                padding: 50px 15px;
+            }
+            
+            .coming-soon-text {
+                font-size: 1.5rem;
+            }
+            
+            footer {
+                padding: 20px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .language-section {
+                padding: 18px;
+                margin-bottom: 20px;
+            }
+            
+            .stories-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .audio-section {
+                padding: 20px 15px;
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .tab-button {
+                font-size: 0.8rem;
+                padding: 10px 3px;
+            }
+            
+            .language-title {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .tab-link {
+                margin-left: 0;
+                margin-top: 10px;
+                align-self: flex-start;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-star-and-crescent"></i> Ramadan Stories for Families</h1>
+            <p>Magical audio stories for children aged 6-16, celebrating the spirit of Ramadan. Scan the barcode to begin your journey!</p>
+        </header>
+
+        <div class="tabs-container">
+            <button class="tab-button active" onclick="openTab(event, 'intro')">Introduction</button>
+            <button class="tab-button" onclick="openTab(event, 'urdu')">Urdu Stories</button>
+            <button class="tab-button" onclick="openTab(event, 'english')">English Stories</button>
+            <button class="tab-button" onclick="openTab(event, 'german')">German</button>
+            <button class="tab-button" onclick="openTab(event, 'arabic')">Arabic</button>
+        </div>
+
+        <div id="intro" class="tab-content active">
+            <div class="language-section">
+                <h2 class="language-title">
+                    <i class="fas fa-globe-americas"></i> English
+                    <a href="javascript:void(0)" onclick="openTab(event, 'english')" class="tab-link">
+                        <i class="fas fa-headphones"></i> Listen to Stories
+                    </a>
+                </h2>
+                <p class="language-text">Scan Barcode for Ramadan! Unlock a new world of wonder each night. These captivating stories, specially designed for kids aged 6 to 16, spark imagination and celebrate the spirit of Ramadan. Gather your family, scan the barcode, and begin your magical story journey tonight!</p>
+            </div>
+            
+            <div class="language-section">
+                <h2 class="language-title">
+                    <i class="fas fa-language"></i> Urdu
+                    <a href="javascript:void(0)" onclick="openTab(event, 'urdu')" class="tab-link">
+                        <i class="fas fa-headphones"></i> کہانیاں سنیں
+                    </a>
+                </h2>
+                <p class="language-text">رمضان کے لیے بارکوڈ اسکین کریں! ہر رات حیرت کی ایک نئی دنیا کھولیں۔ یہ دلچسپ کہانیاں، خاص طور پر 6 سے 16 سال کے بچوں کے لیے بنائی گئی ہیں، تخیل کو جگاتی ہیں اور رمضان کی روح کو مناتی ہیں۔ اپنے خاندان کو جمع کریں، بارکوڈ اسکین کریں، اور آج رات سے اپنا جادوئی کہانیوں کا سفر شروع کریں!</p>
+                <div class="transliteration">
+                    <strong>Transliteration:</strong> Ramzan ke liye barcode scan karein! Har raat hairaat ki ek nayi duniya kholain. Yeh dilchasp kahanian, khaas tor par 6 se 16 saal ke bachon ke liye banai gayi hain, takhayyul ko jagati hain aur Ramzan ki rooh ko manati hain. Apne khaandan ko jama karein, barcode scan karein, aur aaj raat se apna jaadui kahanion ka safar shuru karein!
+                </div>
+            </div>
+            
+            <div class="language-section">
+                <h2 class="language-title">
+                    <i class="fas fa-language"></i> Arabic
+                    <a href="javascript:void(0)" onclick="openTab(event, 'arabic')" class="tab-link">
+                        <i class="fas fa-headphones"></i> استمع إلى القصص
+                    </a>
+                </h2>
+                <p class="language-text">!امسح الباركود من أجل رمضان. افتح عالماً جديداً من العجائب كل ليلة. هذه القصص الجذابة، المصممة خصيصاً للأطفال من عمر 6 إلى 16 سنة، تشعل الخيال وتحتفل بروح رمضان. اجمع عائلتك، امسح الباركود، وابدأ رحلة القصص السحرية الليلة!</p>
+            </div>
+            
+            <div class="language-section">
+                <h2 class="language-title">
+                    <i class="fas fa-language"></i> German
+                    <a href="javascript:void(0)" onclick="openTab(event, 'german')" class="tab-link">
+                        <i class="fas fa-headphones"></i> Geschichten anhören
+                    </a>
+                </h2>
+                <p class="language-text">Barcode für Ramadan scannen! Erschließt jede Nacht eine neue Welt voller Wunder. Diese fesselnden Geschichten, speziell für Kinder von 6 bis 16 Jahren entworfen, wecken die Fantasie und feiern den Geist des Ramadan. Versammelt eure Familie, scannt den Barcode und beginnt noch heute eure magische Geschichtenreise!</p>
+            </div>
+        </div>
+
+        <div id="urdu" class="tab-content">
+            <div class="audio-section">
+                <h2 class="audio-title"><i class="fas fa-headphones-alt"></i> Urdu Audio Stories - All 30 Days</h2>
+                <div class="stories-grid">
+                    <!-- Day 1 to Day 30 - All placeholder links -->
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 1 - Urdu</h3>
+                        <p>Listen to the magical Urdu story for the first night of Ramadan.</p>
+                        <a href="https://drive.google.com/file/d/16yw8ltvqPFAqm6ZbCkChTHemM0G_4GX5/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 1 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 2 - Urdu</h3>
+                        <p>Continue the journey with the second Urdu story for Ramadan.</p>
+                        <a href="https://drive.google.com/file/d/1WdSx1Ceoaoe8RHrjYdguE3sAwFuZv_TS/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 2 Story
+                        </a>
+                    </div>
+                    
+                    <!-- Days 3-10 -->
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 3 - Urdu</h3>
+                        <p>Third day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_3_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 3 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 4 - Urdu</h3>
+                        <p>Fourth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_4_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 4 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 5 - Urdu</h3>
+                        <p>Fifth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_5_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 5 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 6 - Urdu</h3>
+                        <p>Sixth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_6_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 6 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 7 - Urdu</h3>
+                        <p>Seventh day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_7_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 7 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 8 - Urdu</h3>
+                        <p>Eighth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_8_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 8 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 9 - Urdu</h3>
+                        <p>Ninth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_9_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 9 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 10 - Urdu</h3>
+                        <p>Tenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_10_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 10 Story
+                        </a>
+                    </div>
+                    
+                    <!-- Days 11-20 -->
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 11 - Urdu</h3>
+                        <p>Eleventh day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_11_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 11 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 12 - Urdu</h3>
+                        <p>Twelfth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_12_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 12 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 13 - Urdu</h3>
+                        <p>Thirteenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_13_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 13 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 14 - Urdu</h3>
+                        <p>Fourteenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_14_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 14 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 15 - Urdu</h3>
+                        <p>Fifteenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_15_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 15 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 16 - Urdu</h3>
+                        <p>Sixteenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_16_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 16 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 17 - Urdu</h3>
+                        <p>Seventeenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_17_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 17 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 18 - Urdu</h3>
+                        <p>Eighteenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_18_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 18 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 19 - Urdu</h3>
+                        <p>Nineteenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_19_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 19 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 20 - Urdu</h3>
+                        <p>Twentieth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_20_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 20 Story
+                        </a>
+                    </div>
+                    
+                    <!-- Days 21-30 -->
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 21 - Urdu</h3>
+                        <p>Twenty-first day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_21_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 21 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 22 - Urdu</h3>
+                        <p>Twenty-second day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_22_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 22 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 23 - Urdu</h3>
+                        <p>Twenty-third day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_23_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 23 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 24 - Urdu</h3>
+                        <p>Twenty-fourth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_24_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 24 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 25 - Urdu</h3>
+                        <p>Twenty-fifth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_25_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 25 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 26 - Urdu</h3>
+                        <p>Twenty-sixth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_26_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 26 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 27 - Urdu</h3>
+                        <p>Twenty-seventh day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_27_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 27 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 28 - Urdu</h3>
+                        <p>Twenty-eighth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_28_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 28 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 29 - Urdu</h3>
+                        <p>Twenty-ninth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_29_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 29 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 30 - Urdu</h3>
+                        <p>Thirtieth and final day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/URDU_DAY_30_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 30 Story
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="english" class="tab-content">
+            <div class="audio-section">
+                <h2 class="audio-title"><i class="fas fa-headphones-alt"></i> English Audio Stories</h2>
+                <div class="stories-grid">
+                    <!-- Day 1 to Day 16 -->
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 1 - English</h3>
+                        <p>Listen to the enchanting English story for the first night of Ramadan.</p>
+                        <a href="https://drive.google.com/file/d/19OOiADEnMhtCOwLOL74NZYChYX5W-X-j/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 1 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 2 - English</h3>
+                        <p>Continue the adventure with the second English story for Ramadan.</p>
+                        <a href="https://drive.google.com/file/d/1Kn0mv2NuSV5-zZDWlB2Vm8PPRJLCH9GN/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 2 Story
+                        </a>
+                    </div>
+                    
+                    <!-- Days 3-15 -->
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 3 - English</h3>
+                        <p>Third day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_3_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 3 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 4 - English</h3>
+                        <p>Fourth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_4_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 4 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 5 - English</h3>
+                        <p>Fifth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_5_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 5 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 6 - English</h3>
+                        <p>Sixth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_6_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 6 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 7 - English</h3>
+                        <p>Seventh day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_7_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 7 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 8 - English</h3>
+                        <p>Eighth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_8_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 8 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 9 - English</h3>
+                        <p>Ninth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_9_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 9 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 10 - English</h3>
+                        <p>Tenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_10_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 10 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 11 - English</h3>
+                        <p>Eleventh day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_11_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 11 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 12 - English</h3>
+                        <p>Twelfth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_12_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 12 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 13 - English</h3>
+                        <p>Thirteenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_13_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 13 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 14 - English</h3>
+                        <p>Fourteenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_14_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 14 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 15 - English</h3>
+                        <p>Fifteenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_15_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 15 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 16 - English</h3>
+                        <p>Sixteenth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_16_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 16 Story
+                        </a>
+                    </div>
+                    
+                    <!-- Days 17-26 - Coming Soon -->
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 17 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 18 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 19 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 20 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 21 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 22 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 23 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 24 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 25 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 26 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <!-- Days 27-30 -->
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 27 - English</h3>
+                        <p>Twenty-seventh day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_27_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 27 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 28 - English</h3>
+                        <p>Twenty-eighth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_28_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 28 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 29 - English</h3>
+                        <p>Twenty-ninth day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_29_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 29 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 30 - English</h3>
+                        <p>Thirtieth and final day story for Ramadan journey.</p>
+                        <a href="https://drive.google.com/file/d/ENGLISH_DAY_30_PLACEHOLDER/view" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 30 Story
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="german" class="tab-content">
+            <div class="coming-soon">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h2 class="coming-soon-text">Demnächst verfügbar</h2>
+                <p>Wir arbeiten an wunderbaren Geschichten auf Deutsch. Bitte haben Sie noch etwas Geduld.</p>
+                <p><i>(Coming soon in German)</i></p>
+            </div>
+        </div>
+
+        <div id="arabic" class="tab-content">
+            <div class="coming-soon">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h2 class="coming-soon-text">قريباً</h2>
+                <p>نحن نعمل على قصص رائعة باللغة العربية. يرجى التحلي بمزيد من الصبر.</p>
+                <p><i>(Coming soon in Arabic)</i></p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Ramadan Stories for Families | Designed for children aged 6-16 | Scan the barcode to begin your journey</p>
+            <p>All audio content is provided for educational and entertainment purposes during Ramadan.</p>
+        </footer>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+            
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('.tab-button.active').click();
+        });
+    </script>
+</body>
+</html>
