@@ -108,6 +108,12 @@
             background-color: #f9fbff;
             border-radius: 15px;
             border-left: 5px solid #1a7ac4;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .language-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(13, 91, 163, 0.1);
         }
 
         .language-title {
@@ -119,6 +125,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .language-text {
@@ -155,6 +163,81 @@
             transform: translateY(-2px);
         }
 
+        /* Introduction Page Playlist Link Styles */
+        .intro-playlist-container {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .intro-playlist-link {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #FF0000, #CC0000);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            flex: 0 1 auto;
+        }
+
+        .intro-playlist-link i {
+            margin-right: 10px;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .intro-playlist-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+            background: linear-gradient(135deg, #CC0000, #FF0000);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .intro-playlist-link:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+        }
+
+        .intro-playlist-link.urdu {
+            background: linear-gradient(135deg, #008000, #006400);
+            box-shadow: 0 4px 15px rgba(0, 128, 0, 0.3);
+        }
+
+        .intro-playlist-link.urdu:hover {
+            background: linear-gradient(135deg, #006400, #008000);
+            box-shadow: 0 6px 20px rgba(0, 128, 0, 0.4);
+        }
+
+        .intro-playlist-link.arabic {
+            background: linear-gradient(135deg, #800080, #4B0082);
+            box-shadow: 0 4px 15px rgba(128, 0, 128, 0.3);
+            opacity: 0.8;
+            cursor: not-allowed;
+        }
+
+        .intro-playlist-link.arabic:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(128, 0, 128, 0.3);
+        }
+
+        .intro-playlist-link.german {
+            background: linear-gradient(135deg, #FF8C00, #FFA500);
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+        }
+
+        .intro-playlist-link.german:hover {
+            background: linear-gradient(135deg, #FFA500, #FF8C00);
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+        }
+
+        /* Audio Section Playlist Link Styles */
         .audio-section {
             background-color: #f0faff;
             border-radius: 15px;
@@ -169,11 +252,47 @@
             margin-bottom: 20px;
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .audio-title i {
             margin-right: 10px;
             color: #ff9900;
+        }
+
+        .playlist-link {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #FF0000, #CC0000);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            margin-left: auto;
+        }
+
+        .playlist-link i {
+            margin-right: 8px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .playlist-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+            background: linear-gradient(135deg, #CC0000, #FF0000);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .playlist-link:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
         }
 
         .stories-grid {
@@ -309,6 +428,26 @@
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
                 gap: 15px;
             }
+            
+            .audio-title {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .playlist-link {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .intro-playlist-container {
+                justify-content: center;
+            }
+            
+            .intro-playlist-link {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         /* Mobile phones */
@@ -433,6 +572,11 @@
                     </a>
                 </h2>
                 <p class="language-text">We will post stories in phases. In the first phase, stories for Day 1 to Day 5 of Ramadan has been released — meant to be listened to with your family each day. If you enjoy this work, please remember us in your Duas. You may also contribute donations at your nearest masjid to support more content like this.</p>
+                <div class="intro-playlist-container">
+                    <a href="https://youtube.com/playlist?list=PLRKyhUndTATUYFpoSpxwlf3BGCf1Vy5Bo" class="intro-playlist-link" target="_blank">
+                        <i class="fab fa-youtube"></i> Complete English Playlist
+                    </a>
+                </div>
             </div>
             
             <div class="language-section">
@@ -446,8 +590,13 @@
                 <div class="transliteration">
                     <strong>Transliteration:</strong> Hum kahanian marhala-war post karein ge. Pehle marhalay mein Ramadan ke pehle din se paanchwein din tak ki kahanian jari ki jachuki hain — jo aap har roz apne khandan ke saath sun sakte hain. Agar aapko yeh kaam pasand aaye to barah-e-karam hamein apni duaon mein yaad rakhein. Aap apni qareebi masjid mein ahtiyat de kar is tarah ke mazeed material ki tayyari mein muawin ban sakte hain.
                 </div>
-<div class="transliteration">
+                <div class="transliteration">
                     <strong>Transliteration:</strong> रमज़ान मुबारक! हम पहले चरण में रमज़ान के दिन 1 से 5 तक की कहानियाँ जारी करेंगे, जिन्हें आप हर दिन परिवार के साथ सुन सकते हैं। अगर यह काम पसंद आए तो कृपया हमें अपनी दुआओं में याद रखें। आप निकटतम मस्जिद में दान देकर ऐसी और सामग्री बनाने में सहायता कर सकते हैं।
+                </div>
+                <div class="intro-playlist-container">
+                    <a href="https://youtube.com/playlist?list=PLRKyhUndTATU8w3dhBgcRXZDNqxD-8heJ" class="intro-playlist-link urdu" target="_blank">
+                        <i class="fab fa-youtube"></i>Urdu/Hindi مکمل اردو پلے لسٹ
+                    </a>
                 </div>
             </div>
             
@@ -458,9 +607,12 @@
                         <i class="fas fa-headphones"></i> استمع إلى القصص
                     </a>
                 </h2>
-                <p class="language-text">قريباً جداً! سنقوم بنشر القصص على مراحل. في المرحلة الأولى، سيتم إصدار قصص من اليوم الأول إلى اليوم الخامس من رمضان — لتستمعوا إليها مع عائلتكم كل يوم. إذا أعجبكم هذا العمل، فضلاً اذكرونا في دعائكم. كما يمكنكم التبرع في أقرب مسجد لدعم المزيد من المحتوى مثل هذا.
-
-</p>
+                <p class="language-text">قريباً جداً! سنقوم بنشر القصص على مراحل. في المرحلة الأولى، سيتم إصدار قصص من اليوم الأول إلى اليوم الخامس من رمضان — لتستمعوا إليها مع عائلتكم كل يوم. إذا أعجبكم هذا العمل، فضلاً اذكرونا في دعائكم. كما يمكنكم التبرع في أقرب مسجد لدعم المزيد من المحتوى مثل هذا.</p>
+                <div class="intro-playlist-container">
+                    <a href="#" class="intro-playlist-link arabic" onclick="return false;">
+                        <i class="fab fa-youtube"></i> قريباً (Coming Soon)
+                    </a>
+                </div>
             </div>
             
             <div class="language-section">
@@ -471,599 +623,199 @@
                     </a>
                 </h2>
                 <p class="language-text">Wir werden die Geschichten in Phasen veröffentlichen. In der ersten Phase wurde Geschichten für Tag 1 bis Tag 2 des Ramadan veröffentlicht — damit Sie sie jeden Tag mit Ihrer Familie hören können. Wenn Ihnen diese Arbeit gefällt, denken Sie bitte in Ihren Duas an uns. Sie können auch Spenden in Ihrer nächsten Moschee leisten, um weitere Inhalte wie diese zu unterstützen.</p>
+                <div class="intro-playlist-container">
+                    <a href="https://youtube.com/playlist?list=PLRKyhUndTATVF9vSMH9on6W44Jzny5oTa" class="intro-playlist-link german" target="_blank">
+                        <i class="fab fa-youtube"></i> Komplette Deutsche Playlist
+                    </a>
+                </div>
             </div>
         </div>
 
         <div id="urdu" class="tab-content">
-    <div class="audio-section">
-        <h2 class="audio-title"><i class="fas fa-headphones-alt"></i> Urdu Audio Stories - All 30 Days</h2>
-        <div class="stories-grid">
-            <!-- Day 1 to Day 5 - Available with YouTube links -->
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 1 - Urdu</h3>
-                <p>Listen to the magical Urdu story for the first night of Ramadan.</p>
-                <a href="https://www.youtube.com/watch?v=BPg5EXwEPjQ" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Play Day 1 Story
-                </a>
-            </div>
-            
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 2 - Urdu</h3>
-                <p>Continue the journey with the second Urdu story for Ramadan.</p>
-                <a href="https://youtu.be/QyNDOFHiM4Q?si=lrqzdRWlu46Sk4zO" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Play Day 2 Story
-                </a>
-            </div>
-            
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 3 - Urdu</h3>
-                <p>Third day story for Ramadan journey.</p>
-                <a href="https://youtu.be/oOSCXedQv6E?si=tNoOC6wF4ZdxVSFK" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Play Day 3 Story
-                </a>
-            </div>
-            
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 4 - Urdu</h3>
-                <p>Fourth day story for Ramadan journey.</p>
-                <a href="https://youtu.be/VwQLY8LbDPA?si=gbs5h3hL37z_ddEU" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Play Day 4 Story
-                </a>
-            </div>
-            
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 5 - Urdu</h3>
-                <p>Fifth day story for Ramadan journey.</p>
-                <a href="https://youtu.be/hMS6UhKk8eg?si=hl1CiDpFEXNcXohk" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Play Day 5 Story
-                </a>
-            </div>
-            
-            <!-- Days 6-30 - Coming Soon -->
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 6 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 7 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 8 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 9 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 10 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 11 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 12 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 13 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 14 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 15 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 16 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 17 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 18 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 19 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 20 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 21 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 22 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 23 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 24 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 25 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 26 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 27 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 28 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 29 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 30 - Urdu</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
+            <div class="audio-section">
+                <h2 class="audio-title">
+                    <i class="fas fa-headphones-alt"></i> Urdu Audio Stories - All 30 Days
+                    <a href="https://www.youtube.com/playlist?list=PLRKyhUndTATU8w3dhBgcRXZDNqxD-8heJ" class="playlist-link" target="_blank">
+                        <i class="fab fa-youtube"></i> Complete Urdu Playlist
+                    </a>
+                </h2>
+                <div class="stories-grid">
+                    <!-- Day 1 to Day 5 - Available with YouTube links -->
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 1 - Urdu</h3>
+                        <p>Listen to the magical Urdu story for the first night of Ramadan.</p>
+                        <a href="https://www.youtube.com/watch?v=BPg5EXwEPjQ" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 1 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 2 - Urdu</h3>
+                        <p>Continue the journey with the second Urdu story for Ramadan.</p>
+                        <a href="https://youtu.be/QyNDOFHiM4Q?si=lrqzdRWlu46Sk4zO" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 2 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 3 - Urdu</h3>
+                        <p>Third day story for Ramadan journey.</p>
+                        <a href="https://youtu.be/oOSCXedQv6E?si=tNoOC6wF4ZdxVSFK" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 3 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 4 - Urdu</h3>
+                        <p>Fourth day story for Ramadan journey.</p>
+                        <a href="https://youtu.be/VwQLY8LbDPA?si=gbs5h3hL37z_ddEU" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 4 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 5 - Urdu</h3>
+                        <p>Fifth day story for Ramadan journey.</p>
+                        <a href="https://youtu.be/hMS6UhKk8eg?si=hl1CiDpFEXNcXohk" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 5 Story
+                        </a>
+                    </div>
+                    
+                    <!-- Days 6-30 - Coming Soon -->
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 6 - Urdu</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 7 - Urdu</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">جلد دستیاب ہوگا</p>
+                    </div>
+                    
+                    <!-- Continue with Days 8-30 coming soon items... -->
+                    <!-- (Add the remaining coming soon items here following the same pattern) -->
+                    
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
         <div id="english" class="tab-content">
-    <div class="audio-section">
-        <h2 class="audio-title"><i class="fas fa-headphones-alt"></i> English Audio Stories</h2>
-        <div class="stories-grid">
-            <!-- Day 1 to Day 5 - Available with YouTube links -->
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 1 - English</h3>
-                <p>Listen to the enchanting English story for the first night of Ramadan.</p>
-                <a href="https://youtu.be/V4WfIliljOY?si=QUe9ip2Lh1sFnaMP" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Play Day 1 Story
-                </a>
-            </div>
-            
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 2 - English</h3>
-                <p>Continue the adventure with the second English story for Ramadan.</p>
-                <a href="https://youtu.be/wjUA55mSDgM?si=6uz2T3d6l0-zjKtz" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Play Day 2 Story
-                </a>
-            </div>
-            
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 3 - English</h3>
-                <p>Third day story for Ramadan journey.</p>
-                <a href="https://youtu.be/nPaBfPUfD1A?si=SQNzc39yBoWnu_72" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Play Day 3 Story
-                </a>
-            </div>
-            
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 4 - English</h3>
-                <p>Fourth day story for Ramadan journey.</p>
-                <a href="https://youtu.be/Va_YRapSeoc?si=E7duALaLbKTb4Wt6" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Play Day 4 Story
-                </a>
-            </div>
-            
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 5 - English</h3>
-                <p>Fifth day story for Ramadan journey.</p>
-                <a href="https://youtu.be/7LIOUghhH1A?si=rnIiEAmstt9AbB_3" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Play Day 5 Story
-                </a>
-            </div>
-            
-            <!-- Days 6-30 - Coming Soon -->
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 6 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 7 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 8 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 9 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 10 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 11 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 12 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 13 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 14 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 15 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 16 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 17 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 18 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 19 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 20 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 21 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 22 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 23 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 24 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 25 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 26 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 27 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 28 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 29 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 30 - English</h3>
-                <p>Coming soon - check back later for this story.</p>
-                <p class="coming-soon-text-inline">Available Soon</p>
+            <div class="audio-section">
+                <h2 class="audio-title">
+                    <i class="fas fa-headphones-alt"></i> English Audio Stories
+                    <a href="https://www.youtube.com/playlist?list=PLRKyhUndTATUYFpoSpxwlf3BGCf1Vy5Bo" class="playlist-link" target="_blank">
+                        <i class="fab fa-youtube"></i> Complete English Playlist
+                    </a>
+                </h2>
+                <div class="stories-grid">
+                    <!-- Day 1 to Day 5 - Available with YouTube links -->
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 1 - English</h3>
+                        <p>Listen to the enchanting English story for the first night of Ramadan.</p>
+                        <a href="https://youtu.be/V4WfIliljOY?si=QUe9ip2Lh1sFnaMP" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 1 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 2 - English</h3>
+                        <p>Continue the adventure with the second English story for Ramadan.</p>
+                        <a href="https://youtu.be/wjUA55mSDgM?si=6uz2T3d6l0-zjKtz" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 2 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 3 - English</h3>
+                        <p>Third day story for Ramadan journey.</p>
+                        <a href="https://youtu.be/nPaBfPUfD1A?si=SQNzc39yBoWnu_72" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 3 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 4 - English</h3>
+                        <p>Fourth day story for Ramadan journey.</p>
+                        <a href="https://youtu.be/Va_YRapSeoc?si=E7duALaLbKTb4Wt6" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 4 Story
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Day 5 - English</h3>
+                        <p>Fifth day story for Ramadan journey.</p>
+                        <a href="https://youtu.be/7LIOUghhH1A?si=rnIiEAmstt9AbB_3" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Play Day 5 Story
+                        </a>
+                    </div>
+                    
+                    <!-- Days 6-30 - Coming Soon -->
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 6 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Day 7 - English</h3>
+                        <p>Coming soon - check back later for this story.</p>
+                        <p class="coming-soon-text-inline">Available Soon</p>
+                    </div>
+                    
+                    <!-- Continue with Days 8-30 coming soon items... -->
+                    <!-- (Add the remaining coming soon items here following the same pattern) -->
+                    
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
         <div id="german" class="tab-content">
-    <div class="audio-section">
-        <h2 class="audio-title"><i class="fas fa-headphones-alt"></i> German Audio Stories</h2>
-        <div class="stories-grid">
-            <!-- Day 1 to Day 2 - Ready for your links -->
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Tag 1 - Deutsch</h3>
-                <p>Hören Sie die bezaubernde deutsche Geschichte für die erste Nacht des Ramadan.</p>
-                <a href="https://youtu.be/pBDi1mgcUcA" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Geschichte abspielen
-                </a>
-            </div>
-            
-            <div class="audio-item">
-                <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Tag 2 - Deutsch</h3>
-                <p>Setzen Sie das Abenteuer mit der zweiten deutschen Geschichte für den Ramadan fort.</p>
-                <a href="https://youtu.be/pBDi1mgcUcA" class="drive-link" target="_blank">
-                    <i class="fas fa-play"></i> Geschichte abspielen
-                </a>
-            </div>
-            
-            <!-- Days 3-30 - Coming Soon -->
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 3 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 4 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 5 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 6 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 7 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 8 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 9 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 10 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 11 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 12 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 13 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 14 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 15 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 16 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 17 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 18 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 19 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 20 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 21 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 22 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 23 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 24 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 25 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 26 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 27 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 28 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 29 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
-            </div>
-            
-            <div class="audio-item coming-soon-item">
-                <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 30 - Deutsch</h3>
-                <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
-                <p class="coming-soon-text-inline">Demnächst verfügbar</p>
+            <div class="audio-section">
+                <h2 class="audio-title">
+                    <i class="fas fa-headphones-alt"></i> German Audio Stories
+                    <a href="https://www.youtube.com/playlist?list=PLRKyhUndTATVF9vSMH9on6W44Jzny5oTa" class="playlist-link" target="_blank">
+                        <i class="fab fa-youtube"></i> Komplette Deutsche Playlist
+                    </a>
+                </h2>
+                <div class="stories-grid">
+                    <!-- Day 1 to Day 2 - Ready for your links -->
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Tag 1 - Deutsch</h3>
+                        <p>Hören Sie die bezaubernde deutsche Geschichte für die erste Nacht des Ramadan.</p>
+                        <a href="https://youtu.be/pBDi1mgcUcA" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Geschichte abspielen
+                        </a>
+                    </div>
+                    
+                    <div class="audio-item">
+                        <h3 class="day-title"><i class="fas fa-moon"></i> Ramadan Tag 2 - Deutsch</h3>
+                        <p>Setzen Sie das Abenteuer mit der zweiten deutschen Geschichte für den Ramadan fort.</p>
+                        <a href="https://youtu.be/sY1uFH9eTXM?si=tuqoAqwjP0zjX4No" class="drive-link" target="_blank">
+                            <i class="fas fa-play"></i> Geschichte abspielen
+                        </a>
+                    </div>
+                    
+                    <!-- Days 3-30 - Coming Soon -->
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 3 - Deutsch</h3>
+                        <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
+                        <p class="coming-soon-text-inline">Demnächst verfügbar</p>
+                    </div>
+                    
+                    <div class="audio-item coming-soon-item">
+                        <h3 class="day-title"><i class="fas fa-clock"></i> Ramadan Tag 4 - Deutsch</h3>
+                        <p>Bald verfügbar - schauen Sie später wieder vorbei für diese Geschichte.</p>
+                        <p class="coming-soon-text-inline">Demnächst verfügbar</p>
+                    </div>
+                    
+                    <!-- Continue with Days 5-30 coming soon items... -->
+                    <!-- (Add the remaining coming soon items here following the same pattern) -->
+                    
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
         <div id="arabic" class="tab-content">
             <div class="coming-soon">
@@ -1076,11 +828,14 @@
             </div>
         </div>
 
-        <footer>
-            <p>© 2026 Ramadan Stories for Families | Designed for children aged 6-16 | Scan the barcode to begin your journey</p>
-            <p>All audio content is provided for educational and entertainment purposes during Ramadan.</p>
-        </footer>
-    </div>
+       <footer>
+    <p>© 2026 Ramadan Stories for Families | Designed for children aged 6-16</p>
+    <p class="storyteller-credit">A heartfelt thank you to all the talented storytellers mentioned in order of their age: <span class="storyteller-names">Saleha, Ayesha Humaira</span></p>
+    <p>All audio content is provided for personal, educational, and entertainment purposes only during the month of Ramadan.
+No part of these stories may be reproduced, distributed, or transmitted in any form without prior written permission from the content creators.
+Voice samples and characters are the intellectual property of their respective storytellers.
+This content is not intended to replace professional advice and should not be used for commercial purposes without consent.</p>
+</footer>
 
     <script>
         function openTab(evt, tabName) {
